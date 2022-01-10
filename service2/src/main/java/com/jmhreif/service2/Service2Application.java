@@ -1,8 +1,6 @@
 package com.jmhreif.service2;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -12,7 +10,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @SpringBootApplication
@@ -31,20 +28,13 @@ public class Service2Application {
 
 @Component
 @AllArgsConstructor
-class BookController {
+class TextController {
 	private final WebClient client;
 
-	Flux<Book> getBooks() {
+	Mono<String> getText() {
 		return client.get()
-				.uri("/db/books")
+				.uri("/text")
 				.retrieve()
-				.bodyToFlux(Book.class);
+				.bodyToMono(String.class);
 	}
-}
-
-@Data
-class Book {
-	private String bookId;
-	private String title;
-	private String author;
 }
