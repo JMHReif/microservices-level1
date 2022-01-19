@@ -23,8 +23,3 @@ class TextController {
 	@GetMapping
 	String sayHello() { return "Hello, World!"; }
 }
-
-//@Data
-//class Text {
-//	private String someText;
-//}
