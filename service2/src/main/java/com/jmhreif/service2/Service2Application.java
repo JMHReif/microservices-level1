@@ -23,7 +23,7 @@ public class Service2Application {
 
 	@Bean
 	WebClient client() {
-		return WebClient.create("http://localhost:8080");
+		return WebClient.create("http://localhost:8081");
 	}
 
 }
