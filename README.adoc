@@ -13,8 +13,8 @@ image::microservices-level1.png[]
 
 We have 2 services in this repository: `service1` and `service2`. Responsibilities of each service are outlined below.
 
-* Service1: backend service for hosting the REST api endpoint (`localhost:8080/text`)
-* Service2: client service for calling the available REST endpoint (`localhost:8080/text`) and returning the result (`Hello, World!`)
+* Service1: backend service for hosting the REST api endpoint (`localhost:8081/text`)
+* Service2: client REST service for calling the available REST endpoint in service1 and returning the result (`Hello, World!`)
 
 With both services running, we can use service2 to execute whatever service(s) created on the backend (service1).
 
@@ -33,8 +33,9 @@ To reproduce this intro example, please follow the steps.
 
 1. Clone this repository
 2. Run each service (either from an IDE or command line)
-3. Open a browser and go to `localhost:8080/text` OR open a command line window and execute `curl localhost:8080/text`.
-4. See the results `Hello, World!` appear :)
+3. Test backing service: Open a command line window and execute `curl localhost:8081/text`.
+4. Test client service: Open a command line window and execute `curl localhost:8080/hello`.
+5. See the results `Hello, World!` appear :)
 
 == Content
 
